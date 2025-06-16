@@ -1,6 +1,6 @@
 name: Solar water heater
 products:
-  - id: hyrswocbx6i1rveo
+  - id: bf120bca6da623f737lizd
     manufacturer: Lohxa
     model: SR208C
 entities:
@@ -92,11 +92,27 @@ entities:
         optional: true
         name: fault_code
   - entity: sensor
-    name: Upper tank temperature
+    name: Top tank temperature
     class: temperature
     category: diagnostic
     dps:
       - id: 21
+        type: integer
+        name: sensor
+        unit: C
+        class: measurement
+        mapping:
+          - scale: 10
+          - dps_val: 3888
+            value: null
+          - dps_val: 3999
+            value: null
+  - entity: sensor
+    name: Bottom tank temperature
+    class: temperature
+    category: diagnostic
+    dps:
+      - id: 22
         type: integer
         name: sensor
         unit: C
