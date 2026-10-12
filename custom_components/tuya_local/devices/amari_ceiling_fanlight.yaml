@@ -26,22 +26,18 @@ entities:
               min: 3000
               max: 5000
             step: 500
-  - entity: number
+            invert: true
+  - entity: time
     translation_key: timer
     category: config
     dps:
       - id: 26
         type: integer
         optional: true
-        name: value
-        unit: min
-        precision: 0
+        name: second
         range:
           min: 0
-          max: 86400
-        mapping:
-          - scale: 60
-            step: 60
+          max: 86399
   - entity: text
     name: Light control
     hidden: true

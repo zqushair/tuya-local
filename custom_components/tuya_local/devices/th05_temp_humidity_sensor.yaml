@@ -1,4 +1,4 @@
-name: Temperature and humidity Sensor
+name: Temperature and humidity sensor
 products:
   - id: vyfoip9h
     model: TH05-BLE
@@ -38,7 +38,6 @@ entities:
         optional: true
   - entity: sensor
     class: battery
-    category: diagnostic
     dps:
       - id: 4
         type: integer
@@ -46,16 +45,16 @@ entities:
         name: sensor
         unit: "%"
   - entity: number
-    name: Temperature calibration
+    translation_key: temperature_calibration
     category: config
+    class: temperature_delta
     hidden: true
-    icon: "mdi:thermometer-check"
     dps:
       - id: 23
         type: integer
         optional: true
         name: value
-        unit: °
+        unit: C
         range:
           min: -20
           max: 20

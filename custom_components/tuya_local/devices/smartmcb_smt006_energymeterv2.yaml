@@ -8,8 +8,7 @@ products:
     model: SMT006-8
 entities:
   - entity: switch
-    icon: "mdi:fuse"
-    name: Breaker
+    translation_key: breaker
     dps:
       - id: 16
         type: boolean
@@ -112,23 +111,23 @@ entities:
           - scale: 100
   - entity: sensor
     class: voltage
-    category: diagnostic
     dps:
       - id: 6
         type: base64
         name: sensor
         optional: true
+        class: measurement
         unit: V
         mask: "FFFF000000000000"
         mapping:
           - scale: 10
   - entity: sensor
     class: current
-    category: diagnostic
     dps:
       - id: 6
         type: base64
         name: sensor
+        class: measurement
         optional: true
         unit: A
         mask: "0000FFFFFF000000"
@@ -136,7 +135,6 @@ entities:
           - scale: 1000
   - entity: sensor
     class: power
-    category: diagnostic
     dps:
       - id: 6
         type: base64
@@ -144,11 +142,11 @@ entities:
         optional: true
         unit: kW
         mask: "0000000000FFFFFF"
+        class: measurement
         mapping:
           - scale: 1000
   - entity: sensor
     class: temperature
-    category: diagnostic
     dps:
       - id: 103
         type: integer
@@ -156,7 +154,7 @@ entities:
         unit: C
         class: measurement
   - entity: sensor
-    name: Leakage current
+    translation_key: leakage_current
     class: current
     category: diagnostic
     dps:

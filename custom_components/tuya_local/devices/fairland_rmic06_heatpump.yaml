@@ -74,6 +74,7 @@ entities:
       - id: 120
         type: integer
         name: sensor
+        class: measurement
       - id: 103
         name: unit
         type: boolean
@@ -132,6 +133,7 @@ entities:
       - id: 122
         type: integer
         name: sensor
+        class: measurement
       - id: 103
         name: unit
         type: boolean
@@ -141,13 +143,13 @@ entities:
           - dps_val: true
             value: C
   - entity: sensor
-    category: diagnostic
-    name: Ambient temperature
+    translation_key: ambient_temperature
     class: temperature
     dps:
       - id: 124
         type: integer
         name: sensor
+        class: measurement
       - id: 103
         name: unit
         type: boolean
@@ -166,7 +168,7 @@ entities:
         unit: "%"
   - entity: sensor
     category: diagnostic
-    name: Compressor Current
+    name: Compressor current
     dps:
       - id: 126
         name: sensor
@@ -180,6 +182,7 @@ entities:
       - id: 127
         type: integer
         name: sensor
+        class: measurement
       - id: 103
         name: unit
         type: boolean
@@ -203,7 +206,7 @@ entities:
         name: sensor
         type: integer
   - entity: binary_sensor
-    name: Circulating Pump
+    name: Circulating pump
     class: running
     category: diagnostic
     dps:
@@ -211,28 +214,28 @@ entities:
         type: boolean
         name: sensor
   - entity: binary_sensor
-    name: Four-way Valve
+    name: Four-way valve
     category: diagnostic
     dps:
       - id: 136
         type: boolean
         name: sensor
   - entity: sensor
-    name: AC Fan Motor Speed
+    name: AC fan motor speed
     category: diagnostic
     dps:
       - id: 140
         name: sensor
         type: string
   - entity: binary_sensor
-    name: Current limiting Charging Relay
+    name: Current limiting charging relay
     category: diagnostic
     dps:
       - id: 139
         type: boolean
         name: sensor
   - entity: binary_sensor
-    name: Current limiting Charging Relay 2
+    name: Current limiting charging relay 2
     category: diagnostic
     dps:
       - id: 134

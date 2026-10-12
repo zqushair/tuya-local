@@ -85,40 +85,32 @@ entities:
         range:
           min: 10
           max: 120
-  - entity: number
-    name: Light 1 timer
+  - entity: time
+    translation_key: timer_x
+    translation_placeholders:
+      x: "1"
     category: config
-    class: duration
-    translation_key: timer
     dps:
       - id: 104
         type: integer
         optional: true
-        name: value
-        unit: min
+        name: second
         range:
           min: 0
           max: 86400
-        mapping:
-          - scale: 60
-            step: 60
-  - entity: number
-    name: Light 2 timer
+  - entity: time
+    translation_key: timer_x
+    translation_placeholders:
+      x: "2"
     category: config
-    class: duration
-    translation_key: timer
     dps:
       - id: 107
         type: integer
         optional: true
-        name: value
-        unit: min
+        name: second
         range:
           min: 0
           max: 86400
-        mapping:
-          - scale: 60
-            step: 60
   - entity: select
     name: Percentage switch
     icon: "mdi:percent-box"

@@ -50,7 +50,6 @@ entities:
         optional: true
   - entity: sensor
     class: battery
-    category: diagnostic
     dps:
       - id: 7
         type: integer
@@ -83,22 +82,17 @@ entities:
           - dps_val: null
             value: "not set"
             hidden: true
-  - entity: number
+  - entity: time
     translation_key: timer
-    class: duration
     category: config
     dps:
       - id: 11
         type: integer
-        name: value
-        unit: min
+        name: second
         optional: true
         range:
           min: 0
           max: 86400
-        mapping:
-          - scale: 60
-            step: 60
   - entity: select
     name: Smart weather
     icon: "mdi:sun-wireless"

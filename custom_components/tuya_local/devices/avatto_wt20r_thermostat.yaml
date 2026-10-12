@@ -3,6 +3,9 @@ products:
   - id: axhyyv6w36e5oagp
     manufacturer: Avatto
     model: WS20R smart knob
+  - id: t94pit6zjbask9qo
+    manufacturer: Avatto
+    model: WT20R WiFi Knob Thermostat
 entities:
   - entity: climate
     translation_key: thermostat
@@ -105,7 +108,7 @@ entities:
     category: diagnostic
     dps:
       - id: 32
-        type: boolean
+        type: string
         optional: true
         name: sensor
         mapping:
@@ -115,6 +118,7 @@ entities:
   - entity: button
     translation_key: factory_reset
     category: config
+    hidden: true
     dps:
       - id: 39
         type: boolean

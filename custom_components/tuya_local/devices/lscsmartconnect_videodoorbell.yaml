@@ -3,18 +3,20 @@ products:
   - id: i3olzxc2chxmlz9l
     manufacturer: LSC Smart Connect
     model: "3208999"
+  - id: qi0vjgvbtzun2bbr
+    manufacturer: LSC Smart Connect
+    model: "1296P BT"
 entities:
   - entity: switch
-    name: Watermark
+    translation_key: watermark
     category: config
-    icon: "mdi:watermark"
     dps:
       - id: 104
         type: boolean
+        optional: true
         name: switch
   - entity: select
-    name: Nightvision
-    icon: "mdi:weather-night"
+    translation_key: night_vision
     category: config
     dps:
       - id: 108
@@ -23,15 +25,14 @@ entities:
         name: option
         mapping:
           - dps_val: "0"
-            value: Auto
+            value: auto
           - dps_val: "1"
-            value: "Off"
+            value: "off"
           - dps_val: "2"
-            value: "On"
+            value: "on"
   - entity: sensor
-    name: SD status
     class: enum
-    translation_key: status
+    translation_key: sd_status
     category: diagnostic
     dps:
       - id: 110
@@ -154,8 +155,7 @@ entities:
         optional: true
         name: sensor
   - entity: select
-    name: Motion detection
-    icon: "mdi:motion-sensor"
+    translation_key: motion_sensitivity
     category: config
     dps:
       - id: 152
@@ -164,13 +164,13 @@ entities:
         name: option
         mapping:
           - dps_val: "0"
-            value: "Off"
+            value: "off"
           - dps_val: "1"
-            value: Low sensitivity
+            value: low
           - dps_val: "2"
-            value: Medium sensitivity
+            value: medium
           - dps_val: "3"
-            value: High sensitivity
+            value: high
   - entity: siren
     dps:
       - id: 159
@@ -195,8 +195,7 @@ entities:
         optional: true
         name: switch
   - entity: event
-    name: Alarm
-    icon: "mdi:alert"
+    translation_key: alarm
     dps:
       - id: 185
         type: string
@@ -217,6 +216,7 @@ entities:
     dps:
       - id: 188
         type: string
+        optional: true
         name: option
         mapping:
           - dps_val: "0"
@@ -226,8 +226,7 @@ entities:
           - dps_val: "2"
             value: "60Hz"
   - entity: event
-    name: Notification
-    icon: "mdi:message"
+    translation_key: notification
     dps:
       - id: 212
         type: string

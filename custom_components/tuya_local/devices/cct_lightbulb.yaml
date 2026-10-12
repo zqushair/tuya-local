@@ -13,6 +13,8 @@ products:
   - id: owzzoxsdudnxgije
     manufacturer: Genio
     name: CCT downlight
+  - id: 3szijijz5uwozmjm
+    model: Smart WiFi CCT
 entities:
   - entity: light
     dps:
@@ -38,23 +40,40 @@ entities:
           - target_range:
               min: 2700
               max: 6500
-      - id: 25
-        name: scene
-        type: hex
-        optional: true
-  - entity: number
+  - entity: time
     translation_key: timer
-    class: duration
     category: config
     dps:
       - id: 26
         type: integer
-        name: value
-        unit: min
+        name: second
+        optional: true
         range:
           min: 0
           max: 86400
-        mapping:
-          - scale: 60
-            step: 60
+  - entity: text
+    translation_key: scene
+    category: config
+    hidden: true
+    dps:
+      - id: 25
+        type: hex
         optional: true
+        name: value
+  - entity: switch
+    translation_key: do_not_disturb
+    category: config
+    hidden: unavailable
+    dps:
+      - id: 34
+        type: boolean
+        optional: true
+        name: switch
+      - id: 34
+        type: boolean
+        optional: true
+        name: available
+        mapping:
+          - dps_val: null
+            value: false
+          - value: true

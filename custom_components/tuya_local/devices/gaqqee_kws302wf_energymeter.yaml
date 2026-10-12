@@ -3,9 +3,9 @@ products:
   - id: tadm13agjigbdtxd
     manufacturer: Gaqqee
     model: KWS-302-WF
-  - id: bjawzodf
+  - id: z5ow5tmqo2lbsjmy
     manufacturer: Gaqqee
-    model: KWS-303-WF
+    model: KWS-303WF CBU
 entities:
   - entity: sensor
     class: energy
@@ -232,27 +232,23 @@ entities:
   - entity: button
     translation_key: factory_reset
     category: config
+    hidden: true
     dps:
       - id: 120
         type: boolean
         name: button
         optional: true
-  - entity: number
+  - entity: time
     translation_key: timer
     category: config
-    class: duration
     dps:
       - id: 121
         type: integer
-        name: value
+        name: second
         optional: true
-        unit: min
         range:
           min: 0
           max: 86400
-        mapping:
-          - scale: 60
-            step: 60
   - entity: switch
     name: Schedule
     category: config

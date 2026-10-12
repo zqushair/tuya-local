@@ -3,6 +3,9 @@ products:
   - id: jdsjyhct8uotmaiw
     manufacturer: LSC Smart Connect
     model: 5m RGBIC+CCTIC
+  - id: h4xcs3aemqldhnr9
+    manufacturer: LSC Smart Connect
+    model: 5m RGBIC+CCTIC
 entities:
   - entity: light
     dps:
@@ -58,15 +61,13 @@ entities:
             range:
               min: 0
               max: 1000
-  - entity: number
+  - entity: time
     translation_key: timer
-    class: duration
     category: config
     dps:
       - id: 26
         type: integer
-        name: value
-        unit: s
+        name: second
         range:
           min: 0
           max: 86400
@@ -100,9 +101,8 @@ entities:
         name: sensor
         unit: px
   - entity: text
-    name: Scene
+    translation_key: scene
     category: config
-    icon: "mdi:palette"
     hidden: true
     dps:
       - id: 51

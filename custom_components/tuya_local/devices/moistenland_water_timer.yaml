@@ -25,8 +25,6 @@ entities:
         name: fault_code
   - entity: sensor
     class: battery
-    category: diagnostic
-    icon: mdi:battery
     dps:
       - id: 7
         type: integer
@@ -65,26 +63,21 @@ entities:
             value: "48h"
           - dps_val: "72h"
             value: "72h"
-  - entity: number
+  - entity: time
     category: config
-    class: duration
     translation_key: timer
     dps:
       - id: 11
-        name: value
+        name: second
         type: integer
-        unit: min
         range:
           min: 0
           max: 86400
-        mapping:
-          - scale: 60
-            step: 60
   - entity: sensor
-    name: Work Mode
+    name: Work mode
     class: enum
     category: diagnostic
-    icon: mdi:auto-mode
+    icon: "mdi:auto-mode"
     dps:
       - id: 12
         type: string

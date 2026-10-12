@@ -4,7 +4,23 @@ products:
     manufacturer: Pinelake
     model: BF002
 entities:
+  - entity: switch
+    translation_key: camera_record
+    dps:
+      - id: 150
+        type: boolean
+        optional: true
+        name: switch
+  - entity: switch
+    translation_key: motion_detection
+    category: config
+    dps:
+      - id: 134
+        type: boolean
+        optional: true
+        name: switch
   - entity: camera
+    deprecated: switch_camera_record, switch_motion_detection  # 2026-06-08
     dps:
       - id: 150
         name: record
@@ -61,8 +77,7 @@ entities:
         optional: true
         force: true
   - entity: switch
-    name: Flip image
-    icon: "mdi:flip-horizontal"
+    translation_key: flip_image
     category: config
     dps:
       - id: 103
@@ -71,9 +86,8 @@ entities:
         optional: true
         force: true
   - entity: switch
-    name: OSD watermark
+    translation_key: watermark
     category: config
-    icon: "mdi:watermark"
     dps:
       - id: 104
         type: boolean
@@ -81,41 +95,39 @@ entities:
         optional: true
         force: true
   - entity: select
-    name: Night vision
+    translation_key: night_vision
     category: config
-    icon: "mdi:theme-light-dark"
     dps:
       - id: 108
         type: string
         name: option
         mapping:
           - dps_val: "0"
-            value: "Auto"
+            value: "auto"
           - dps_val: "1"
-            value: "Off"
+            value: "off"
           - dps_val: "2"
-            value: "On"
+            value: "on"
         optional: true
         force: true
   - entity: select
-    name: Motion sensitivity
+    translation_key: motion_sensitivity
     category: config
-    icon: "mdi:motion-sensor"
     dps:
       - id: 106
         type: string
         name: option
         mapping:
           - dps_val: "0"
-            value: "Low"
+            value: "low"
           - dps_val: "1"
-            value: "Medium"
+            value: "medium"
           - dps_val: "2"
-            value: "High"
+            value: "high"
         optional: true
         force: true
   - entity: switch
-    name: Motion Detection Timer
+    name: Motion detection timer
     category: config
     icon: "mdi:motion-sensor"
     dps:
@@ -135,11 +147,9 @@ entities:
         optional: true
         force: true
   - entity: sensor
-    name: SD card status
     class: enum
-    translation_key: status
+    translation_key: sd_status
     category: diagnostic
-    icon: "mdi:micro-sd"
     dps:
       - id: 110
         type: integer

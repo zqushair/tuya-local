@@ -8,15 +8,16 @@ entities:
     class: enum
     category: diagnostic
     name: Charge mode
+    translation_key: status
     dps:
       - id: 101
         type: string
         name: sensor
         mapping:
           - dps_val: mode_1
-            value: Standby
+            value: standby
           - dps_val: mode_2
-            value: mode_2
+            value: Constant current
           - dps_val: mode_3
             value: Constant voltage
           - dps_val: mode_4
@@ -92,6 +93,16 @@ entities:
       - id: 107
         type: bitfield
         name: fault_code
+      - id: 107
+        type: bitfield
+        name: description
+        mapping:
+          - dps_val: 0
+            value: ok
+          - dps_val: 1
+            value: Battery undervoltage
+          - dps_val: 2
+            value: Battery overvoltage
   - entity: sensor
     class: energy
     category: diagnostic
@@ -132,7 +143,6 @@ entities:
           min: 0
           max: 1000
   - entity: sensor
-    category: diagnostic
     class: battery
     dps:
       - id: 111
@@ -156,7 +166,6 @@ entities:
           - dps_val: lithium
             value: Lithium
   - entity: sensor
-    category: diagnostic
     class: temperature
     dps:
       - id: 113
@@ -166,6 +175,7 @@ entities:
         range:
           min: -400
           max: 1200
+        class: measurement
         mapping:
           - scale: 10
   - entity: sensor

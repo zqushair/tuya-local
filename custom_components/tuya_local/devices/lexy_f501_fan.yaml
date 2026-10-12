@@ -38,9 +38,6 @@ entities:
             value: true
           - dps_val: "360negative"
             value: true
-      - id: 6
-        name: timer
-        type: integer
       - id: 102
         name: speed
         type: integer
@@ -66,17 +63,12 @@ entities:
         name: lock
         type: boolean
   - entity: switch
-    name: Sound
+    translation_key: sound
     category: config
     dps:
       - id: 17
         name: switch
         type: boolean
-        mapping:
-          - dps_val: true
-            icon: "mdi:volume-high"
-          - dps_val: false
-            icon: "mdi:volume-mute"
   - entity: number
     translation_key: timer
     class: duration

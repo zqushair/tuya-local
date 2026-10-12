@@ -1,4 +1,11 @@
 name: Aroma diffuser
+products:
+  - id: 7x87ndiyat1sv6os
+    manufacturer: Asakuki
+    model: Cube WiFi
+  - id: uwP5ueRSh5k5Ccuw
+    manufacturer: Our Garden
+    model: GD-30W
 entities:
   - entity: fan
     translation_key: aroma_diffuser
@@ -50,12 +57,13 @@ entities:
               max: 255
       - id: 109
         type: string
-        name: color_mode
+        name: effect
         mapping:
           - dps_val: white
             value: white
+            hidden: true
           - dps_val: colour
-            value: hs
+            value: "off"
           - dps_val: scene
             value: Scene
           - dps_val: scene1

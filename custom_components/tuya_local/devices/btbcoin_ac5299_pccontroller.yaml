@@ -88,15 +88,13 @@ entities:
             value: warning
           - dps_val: forced_failure
             value: blocked
-  - entity: number
+  - entity: time
     translation_key: timer
-    class: duration
     category: config
     dps:
       - id: 108
         type: integer
-        name: value
-        unit: s
+        name: second
         range:
           min: 0
           max: 86400

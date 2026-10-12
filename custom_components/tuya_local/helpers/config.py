@@ -30,9 +30,6 @@ async def async_tuya_setup_platform(
             try:
                 data[ecfg.config_id] = entity_class(device, ecfg)
                 entities.append(data[ecfg.config_id])
-                if ecfg.deprecated:
-                    _LOGGER.warning(ecfg.deprecation_message)
-                _LOGGER.debug("Adding %s for %s", platform, ecfg.config_id)
             except Exception as e:
                 _LOGGER.error(
                     "Error adding %s for %s: %s",
@@ -48,8 +45,8 @@ async def async_tuya_setup_platform(
 
 
 def get_device_id(config: dict):
-    return (
-        config[CONF_DEVICE_CID]
-        if CONF_DEVICE_CID in config and config[CONF_DEVICE_CID] != ""
-        else config[CONF_DEVICE_ID]
-    )
+    device_id = config.get(CONF_DEVICE_ID)
+    device_cid = config.get(CONF_DEVICE_CID)
+    if device_id and device_cid:
+        return f"{device_id}/{device_cid}"
+    return device_cid or device_id

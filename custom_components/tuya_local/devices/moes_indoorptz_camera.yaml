@@ -5,7 +5,32 @@ products:
     model: P52
     name: PTZ indoor security camera
 entities:
+  - entity: switch
+    translation_key: camera_record
+    dps:
+      - id: 150
+        type: boolean
+        optional: true
+        name: switch
+  - entity: switch
+    translation_key: motion_detection
+    category: config
+    dps:
+      - id: 134
+        type: boolean
+        optional: true
+        name: switch
+  - entity: switch
+    name: Camera privacy
+    icon: "mdi:incognito"
+    dps:
+      - id: 105
+        type: boolean
+        name: switch
   - entity: camera
+    # 2026-06-08
+    deprecated: >-
+      switch_camera_privacy, switch_camera_record, switch_motion_detection
     dps:
       - id: 105
         type: boolean
@@ -29,24 +54,21 @@ entities:
         type: boolean
         name: switch
   - entity: switch
-    name: Flip image
-    icon: "mdi:flip-horizontal"
+    translation_key: flip_image
     category: config
     dps:
       - id: 103
         type: boolean
         name: switch
   - entity: switch
-    name: Watermark
-    icon: "mdi:watermark"
+    translation_key: watermark
     category: config
     dps:
       - id: 104
         type: boolean
         name: switch
   - entity: select
-    name: Motion sensitivity
-    icon: "mdi:motion-sensor"
+    translation_key: motion_sensitivity
     category: config
     dps:
       - id: 106
@@ -68,8 +90,7 @@ entities:
         type: boolean
         name: switch
   - entity: select
-    name: Night vision
-    icon: "mdi:weather-night"
+    translation_key: night_vision
     category: config
     dps:
       - id: 108
@@ -83,10 +104,8 @@ entities:
           - dps_val: "2"
             value: "on"
   - entity: sensor
-    name: SD card
-    icon: "mdi:micro-sd"
     class: enum
-    translation_key: status
+    translation_key: sd_status
     category: diagnostic
     dps:
       - id: 110
@@ -351,8 +370,7 @@ entities:
         optional: true
         name: sound
   - entity: select
-    name: Record mode
-    icon: "mdi:video"
+    translation_key: recording_mode
     category: config
     dps:
       - id: 151
@@ -360,13 +378,12 @@ entities:
         name: option
         mapping:
           - dps_val: "1"
-            value: Event
+            value: event
           - dps_val: "2"
-            value: Continuous
+            value: continuous
   - entity: number
-    name: Volume
+    translation_key: volume
     category: config
-    icon: "mdi:volume-high"
     dps:
       - id: 160
         type: integer
@@ -462,8 +479,7 @@ entities:
             value: false
             hidden: true
   - entity: event
-    name: Alarm
-    icon: "mdi:alarm-bell"
+    translation_key: alarm
     dps:
       - id: 185
         type: string

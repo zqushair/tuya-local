@@ -71,8 +71,7 @@ entities:
         type: bitfield
         name: fault_code
   - entity: select
-    name: Charging mode
-    icon: "mdi:ev-station"
+    translation_key: charging_mode
     category: config
     dps:
       - id: 14
@@ -81,9 +80,9 @@ entities:
         name: option
         mapping:
           - dps_val: charge_now
-            value: Immediate
+            value: immediate
           - dps_val: charge_schedule
-            value: Scheduled charge
+            value: scheduled_charge
   - entity: sensor
     translation_key: voltage_x
     translation_placeholders:
@@ -95,6 +94,7 @@ entities:
         name: sensor
         optional: true
         unit: V
+        class: measurement
         mask: "FFFF0000000000"
         mapping:
           - scale: 10
@@ -107,6 +107,7 @@ entities:
       - id: 6
         type: base64
         name: sensor
+        class: measurement
         optional: true
         unit: A
         mask: "000000FFFF0000"
@@ -121,6 +122,7 @@ entities:
       - id: 6
         type: base64
         name: sensor
+        class: measurement
         optional: true
         unit: kW
         mask: "0000000000FFFF"
@@ -135,6 +137,7 @@ entities:
       - id: 7
         type: base64
         name: sensor
+        class: measurement
         optional: true
         unit: V
         mask: "FFFF0000000000"
@@ -149,6 +152,7 @@ entities:
       - id: 7
         type: base64
         name: sensor
+        class: measurement
         optional: true
         unit: A
         mask: "000000FFFF0000"
@@ -163,6 +167,7 @@ entities:
       - id: 7
         type: base64
         name: sensor
+        class: measurement
         optional: true
         unit: kW
         mask: "0000000000FFFF"
@@ -177,6 +182,7 @@ entities:
       - id: 8
         type: base64
         name: sensor
+        class: measurement
         optional: true
         unit: V
         mask: "FFFF0000000000"
@@ -191,6 +197,7 @@ entities:
       - id: 8
         type: base64
         name: sensor
+        class: measurement
         optional: true
         unit: A
         mask: "000000FFFF0000"
@@ -205,6 +212,7 @@ entities:
       - id: 8
         type: base64
         name: sensor
+        class: measurement
         optional: true
         unit: kW
         mask: "0000000000FFFF"

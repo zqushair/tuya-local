@@ -33,16 +33,15 @@ entities:
         optional: true
   - entity: sensor
     class: battery
-    category: diagnostic
     dps:
       - id: 4
         type: integer
         name: sensor
         unit: "%"
   - entity: number
-    name: High temperature limit
+    translation_key: maximum_temperature
     category: config
-    icon: "mdi:thermometer-chevron-up"
+    class: temperature
     dps:
       - id: 10
         type: integer
@@ -54,9 +53,9 @@ entities:
         mapping:
           - scale: 10
   - entity: number
-    name: Low temperature limit
+    translation_key: minimum_temperature
     category: config
-    icon: "mdi:thermometer-chevron-down"
+    class: temperature
     dps:
       - id: 11
         type: integer
@@ -122,14 +121,14 @@ entities:
           - dps_val: cancel
             value: normal
   - entity: number
-    name: Temperature calibration
+    translation_key: temperature_calibration
+    class: temperature_delta
     category: config
-    icon: "mdi:arrow-collapse-up"
     dps:
       - id: 23
         type: integer
         name: value
-        unit: °
+        unit: C
         range:
           min: -20
           max: 20

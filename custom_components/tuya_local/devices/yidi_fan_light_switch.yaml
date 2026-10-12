@@ -16,26 +16,30 @@ entities:
           min: 1
           max: 100
   - entity: light
+    hidden: unavailable
     dps:
       - id: 5
         type: boolean
+        optional: true
         name: switch
-  - entity: number
-    name: Fan timer
+      - id: 5
+        type: boolean
+        optional: true
+        name: available
+        mapping:
+          - dps_val: null
+            value: false
+          - value: true
+  - entity: time
     category: config
-    class: duration
     translation_key: timer
     dps:
       - id: 2
         type: integer
-        name: value
-        unit: min
+        name: second
         range:
           min: 0
           max: 86400
-        mapping:
-          - scale: 60
-            step: 60
   - entity: select
     translation_key: initial_state
     category: config

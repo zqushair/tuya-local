@@ -50,25 +50,19 @@ entities:
         name: music_data
         type: hex
         optional: true
-  - entity: number
+  - entity: time
     translation_key: timer
     category: config
     dps:
       - id: 26
         type: integer
-        name: value
+        optional: true
+        name: second
         range:
           min: 0
-          max: 86400
-        optional: true
-        unit: min
-        mapping:
-          - scale: 60
-            step: 60
-          - dps_val: null
+          max: 86399
   - entity: select
-    name: Scene
-    icon: "mdi:palette"
+    translation_key: scene
     category: config
     dps:
       - id: 25

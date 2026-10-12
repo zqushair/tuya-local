@@ -61,7 +61,6 @@ entities:
         optional: true
   - entity: sensor
     name: Power level
-    class: power_factor
     category: diagnostic
     dps:
       - id: 104
@@ -71,13 +70,13 @@ entities:
         class: measurement
   - entity: sensor
     class: power
-    category: diagnostic
     dps:
       - id: 142
         name: sensor
         type: integer
         unit: W
         optional: true
+        class: measurement
   - entity: binary_sensor
     name: Water flow
     class: problem

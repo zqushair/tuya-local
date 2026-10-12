@@ -3,9 +3,9 @@
 import json
 import sys
 
-from common_funcs import FakeDevice, load_config, make_sample_dps
-
 from custom_components.tuya_local.helpers.device_config import _typematch
+
+from .common_funcs import FakeDevice, load_config, make_sample_dps
 
 
 def main() -> int:
@@ -15,14 +15,17 @@ def main() -> int:
         dps = json.loads(rest)
     else:
         dps = make_sample_dps(config)
-    device = FakeDevice(dps)
+
     config = load_config(sys.argv[1])
     if config is None:
         print(f"No config could be loaded for {sys.argv[1]}")
         return 1
+    device = FakeDevice(dps)
+    unseen = set(dps.keys())
     for entity in config.all_entities():
         print(f"{entity.config_id}:")
         for dp in entity.dps():
+            unseen.discard(dp.id)
             if dp.id not in dps.keys():
                 print(f"   {dp.name} missing from data")
                 if not dp.optional:
@@ -38,6 +41,8 @@ def main() -> int:
                 else:
                     values = ""
                 print(f"   {dp.name}: {dp.get_value(device)}{values}")
+    for dp in unseen:
+        print(f"   Extra dp {dp} in data")
 
 
 if __name__ == "__main__":

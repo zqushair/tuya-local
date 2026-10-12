@@ -12,8 +12,7 @@ entities:
         type: boolean
         name: switch
   - entity: switch
-    name: Flip image
-    icon: "mdi:flip-horizontal"
+    translation_key: flip_image
     category: config
     dps:
       - id: 103
@@ -25,8 +24,7 @@ entities:
             value: false
             hidden: true
   - entity: switch
-    name: Timestamp
-    icon: "mdi:clock-time-eight"
+    translation_key: watermark
     category: config
     dps:
       - id: 104
@@ -34,8 +32,7 @@ entities:
         optional: true
         name: switch
   - entity: select
-    name: Motion sensitivity
-    icon: "mdi:motion-sensor"
+    translation_key: motion_sensitivity
     category: config
     dps:
       - id: 106
@@ -49,9 +46,23 @@ entities:
             value: medium
           - dps_val: "2"
             value: high
+  - entity: select
+    translation_key: night_vision
+    category: config
+    dps:
+      - id: 108
+        type: boolean
+        optional: true
+        name: option
+        mapping:
+          - dps_val: false
+            value: "off"
+          - dps_val: true
+            value: "on"
   - entity: switch
     name: Nightvision
     icon: "mdi:weather-night"
+    deprecated: select_night_vision  # 2026-05-31
     category: config
     dps:
       - id: 108
@@ -83,8 +94,7 @@ entities:
         optional: true
         name: snapshot
   - entity: switch
-    name: Motion detection
-    icon: "mdi:motion-sensor"
+    translation_key: motion_detection
     category: config
     dps:
       - id: 134
@@ -96,9 +106,7 @@ entities:
             value: false
             hidden: true
   - entity: number
-    name: Manual feed
-    category: config
-    icon: "mdi:paw"
+    translation_key: manual_feed
     dps:
       - id: 201
         type: integer

@@ -6,24 +6,21 @@ products:
   - id: 5bvnmoqjth5nd4de
     manufacturer: Teckin
     model: SP21/SP22/SP27
+  - id: keyayvxqq5tqp73w
+    manufacturer: Ambrane
 entities:
   - entity: switch
     dps:
       - id: 1
         name: switch
         type: boolean
-  - entity: number
+  - entity: time
     category: config
-    class: duration
     translation_key: timer
     dps:
       - id: 11
-        name: value
+        name: second
         type: integer
-        unit: min
         range:
           min: 0
           max: 86400
-        mapping:
-          - scale: 60
-            step: 60

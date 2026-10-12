@@ -73,8 +73,7 @@ entities:
         mapping:
           - scale: 60
   - entity: select
-    name: Flow Rate Unit
-    class: water
+    name: Flow rate unit
     category: config
     dps:
       - id: 116
@@ -103,7 +102,7 @@ entities:
         name: button
   - entity: sensor
     name: Last hour use
-    class: water
+    class: volume
     category: diagnostic
     dps:
       - id: 125

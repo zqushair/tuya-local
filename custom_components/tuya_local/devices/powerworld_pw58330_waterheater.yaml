@@ -8,7 +8,6 @@ products:
 #     model: PW58330
 entities:
   - entity: water_heater
-    translation_only_key: water_air
     dps:
       - id: 1
         type: boolean
@@ -17,22 +16,7 @@ entities:
           - dps_val: false
             value: "off"
           - dps_val: true
-            constraint: work_mode
-            conditions:
-              - dps_val: wth
-                value: hotwater
-              - dps_val: heat
-                value: heat
-              - dps_val: cool
-                value: cool
-              - dps_val: wth_heat
-                value: hotwater_heat
-              - dps_val: wth_cool
-                value: hotwater_cool
-      - id: 5
-        type: string
-        name: work_mode
-        hidden: true
+            value: heat_pump
       - id: 6
         type: string
         name: temperature_unit
@@ -71,6 +55,24 @@ entities:
         type: string
         optional: true
         name: parameter_group_7
+  - entity: select
+    translation_key: heat_pump_mode
+    category: config
+    dps:
+      - id: 5
+        type: string
+        name: option
+        mapping:
+          - dps_val: wth
+            value: hotwater
+          - dps_val: heat
+            value: heat
+          - dps_val: cool
+            value: cool
+          - dps_val: wth_heat
+            value: hotwater_heat
+          - dps_val: wth_cool
+            value: hotwater_cool
   - entity: climate
     translation_key: heater
     dps:
@@ -129,16 +131,20 @@ entities:
     dps:
       - id: 15
         type: bitfield
+        optional: true
         name: sensor
         mapping:
           - dps_val: 0
             value: false
+          - dps_val: null
+            value: false
           - value: true
       - id: 15
         type: bitfield
+        optional: true
         name: fault_code
   - entity: sensor
-    name: Inlet temperature
+    translation_key: inlet_temperature
     class: temperature
     category: diagnostic
     dps:
@@ -148,13 +154,13 @@ entities:
         class: measurement
       - id: 6
         type: string
-        name: temperature_unit
+        name: unit
         mapping:
           - dps_val: f
             value: F
           - value: C
   - entity: sensor
-    name: Outlet temperature
+    translation_key: outlet_temperature
     class: temperature
     category: diagnostic
     dps:
@@ -164,7 +170,7 @@ entities:
         class: measurement
       - id: 6
         type: string
-        name: temperature_unit
+        name: unit
         mapping:
           - dps_val: f
             value: F
@@ -180,7 +186,7 @@ entities:
         class: measurement
       - id: 6
         type: string
-        name: temperature_unit
+        name: unit
         mapping:
           - dps_val: f
             value: F
@@ -196,7 +202,7 @@ entities:
         class: measurement
       - id: 6
         type: string
-        name: temperature_unit
+        name: unit
         mapping:
           - dps_val: f
             value: F
@@ -212,7 +218,7 @@ entities:
         class: measurement
       - id: 6
         type: string
-        name: temperature_unit
+        name: unit
         mapping:
           - dps_val: f
             value: F
@@ -228,7 +234,7 @@ entities:
         class: measurement
       - id: 6
         type: string
-        name: temperature_unit
+        name: unit
         mapping:
           - dps_val: f
             value: F
@@ -272,7 +278,7 @@ entities:
         class: measurement
       - id: 6
         type: string
-        name: temperature_unit
+        name: unit
         mapping:
           - dps_val: f
             value: F
@@ -318,6 +324,7 @@ entities:
   - entity: button
     translation_key: factory_reset
     category: config
+    hidden: true
     dps:
       - id: 125
         type: boolean
@@ -359,6 +366,7 @@ entities:
         optional: true
         name: sensor
         unit: m³/h
+        class: measurement
         mapping:
           - scale: 100
         mask: "00000000FFFFFFFF00000000000000000000000000000000\
@@ -384,6 +392,7 @@ entities:
         optional: true
         name: sensor
         unit: A
+        class: measurement
         mapping:
           - scale: 10
         mask: "0000000000000000FFFFFFFF000000000000000000000000\
@@ -413,6 +422,7 @@ entities:
                000000000000000000000000000000000000000000000000\
                000000000000000000000000000000000000000000000000\
                0000000000000000"
+        class: measurement
       - id: 140
         type: string
         optional: true
@@ -436,6 +446,7 @@ entities:
                000000000000000000000000000000000000000000000000\
                000000000000000000000000000000000000000000000000\
                0000000000000000"
+        class: measurement
       - id: 140
         type: string
         optional: true

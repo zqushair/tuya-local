@@ -1,4 +1,4 @@
-name: PIR Spotlight
+name: PIR spotlight
 products:
   - id: reldobj3ny6fbgvw
     model: Duo LED
@@ -35,23 +35,17 @@ entities:
           - target_range:
               min: 2700
               max: 6500
-  - entity: number
+  - entity: time
     translation_key: timer
-    class: duration
     category: config
     dps:
       - id: 26
-        name: value
+        name: second
         type: integer
         optional: true
         range:
           min: 0
           max: 86400
-        unit: min
-        mapping:
-          - scale: 60
-            step: 60
-          - dps_val: null
   - entity: switch
     name: Manual mode
     category: config
@@ -65,7 +59,6 @@ entities:
           - dps_val: manual
             value: true
         optional: true
-        force: true
   - entity: switch
     name: PIR enabled
     category: config
@@ -74,7 +67,6 @@ entities:
         type: boolean
         name: switch
         optional: true
-        force: true
   - entity: event
     class: motion
     dps:
@@ -87,21 +79,20 @@ entities:
           - dps_val: none
             value: clear
   - entity: select
-    name: Motion distance
+    translation_key: motion_sensitivity
     category: config
     dps:
       - id: 54
         type: string
         name: option
+        optional: true
         mapping:
           - dps_val: "high"
-            value: "Far"
-          - dps_val: "low"
-            value: "Near"
+            value: high
           - dps_val: "middle"
-            value: "Medium"
-        optional: true
-        force: true
+            value: medium
+          - dps_val: "low"
+            value: low
   - entity: number
     name: Full light duration
     category: config
@@ -115,7 +106,6 @@ entities:
           max: 3600
         unit: s
         optional: true
-        force: true
   - entity: number
     name: Standby delay
     category: config
@@ -127,27 +117,21 @@ entities:
           min: 1
           max: 480
         unit: min
-        mapping:
-          - scale: 1
-          - dps_val: null
         optional: true
-        force: true
   - entity: number
-    name: Standby bright
+    name: Standby brightness
     category: config
     dps:
       - id: 59
         name: value
         type: integer
+        unit: "%"
+        optional: true
         range:
           min: 0
           max: 1000
-        unit: min
         mapping:
-          - scale: 1
-          - dps_val: null
-        optional: true
-        force: true
+          - scale: 10
   - entity: select
     name: Ambient light sensor
     category: config
@@ -171,4 +155,3 @@ entities:
           - dps_val: now
             value: Now
         optional: true
-        force: true

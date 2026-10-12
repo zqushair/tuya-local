@@ -1,4 +1,4 @@
-name: Pool heatpump
+name: Pool heat pump
 products:
   - id: 1ovawewadpk2jiaw
     manufacturer: Pool-Systems
@@ -70,10 +70,18 @@ entities:
         type: string
         optional: true
         name: cool_available
+        mapping:
+          - dps_val: "0"
+            value: false
+          - value: true
       - id: 115
         type: string
         optional: true
         name: boost_available
+        mapping:
+          - dps_val: "0"
+            value: false
+          - value: true
   - entity: sensor
     category: diagnostic
     class: power_factor
@@ -128,7 +136,6 @@ entities:
         optional: true
         name: fault_code_2
   - entity: sensor
-    category: diagnostic
     hidden: unavailable
     class: power
     dps:
@@ -136,6 +143,7 @@ entities:
         name: sensor
         type: integer
         unit: W
+        class: measurement
         optional: true
       - id: 113
         name: available

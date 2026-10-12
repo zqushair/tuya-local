@@ -1,4 +1,4 @@
-name: Pool heatpump
+name: Pool heat pump
 products:
   - id: qrlLaHWwIsZsV31f
     manufacturer: Phalén
@@ -6,8 +6,12 @@ products:
     # - id: UNKNOWN
     #   manufacturer: Fairland
     #   model InverterPlus
+  - id: CGJ08iaKlWqKmVuX
+    manufacturer: Fairland
+    model: IPHCR20
 entities:
   - entity: climate
+    translation_only_key: pool_heatpump
     dps:
       - id: 1
         name: hvac_mode
@@ -15,8 +19,6 @@ entities:
         mapping:
           - dps_val: false
             value: "off"
-            icon: "mdi:hvac-off"
-            icon_priority: 1
           - dps_val: true
             constraint: mode
             conditions:
@@ -40,14 +42,7 @@ entities:
       - id: 105
         name: mode
         type: string
-        icon_priority: 4
-        mapping:
-          - dps_val: warm
-            icon: "mdi:hot-tub"
-          - dps_val: cool
-            icon: "mdi:snowflake"
-          - dps_val: smart
-            icon: "mdi:refresh-auto"
+        hidden: true
       - id: 106
         name: temperature
         type: integer
@@ -79,7 +74,6 @@ entities:
     category: diagnostic
     name: Power level
     icon: "mdi:signal"
-    class: power_factor
     dps:
       - id: 104
         type: integer
@@ -98,6 +92,18 @@ entities:
           - dps_val: 4
             value: true
           - value: false
+  - entity: select
+    translation_key: temperature_unit
+    category: config
+    dps:
+      - id: 103
+        type: boolean
+        name: option
+        mapping:
+          - dps_val: false
+            value: fahrenheit
+          - dps_val: true
+            value: celsius
   - entity: binary_sensor
     class: problem
     category: diagnostic

@@ -57,118 +57,118 @@ entities:
           min: 8
           max: 32
   - entity: sensor
-    name: L1 Voltage
+    name: L1 voltage
     class: voltage
-    category: diagnostic
     dps:
       - id: 6  # phase_1
         type: base64
         name: sensor
+        class: measurement
         optional: true
         unit: V
         mask: "FFFF000000000000"
         mapping:
           - scale: 10
   - entity: sensor
-    name: L1 Current
+    name: L1 current
     class: current
-    category: diagnostic
     dps:
       - id: 6  # phase_1
         type: base64
         name: sensor
         optional: true
+        class: measurement
         unit: A
         mask: "0000FFFFFF000000"
         mapping:
           - scale: 1000
   - entity: sensor
-    name: L1 Power
+    name: L1 power
     class: power
-    category: diagnostic
     dps:
       - id: 6  # phase_1
         type: base64
         name: sensor
         optional: true
         unit: kW
+        class: measurement
         mask: "0000000000FFFFFF"
         mapping:
           - scale: 1000
   - entity: sensor
-    name: L2 Voltage
+    name: L2 voltage
     class: voltage
-    category: diagnostic
     dps:
       - id: 7  # phase_2
         type: base64
         name: sensor
         optional: true
+        class: measurement
         unit: V
         mask: "FFFF000000000000"
         mapping:
           - scale: 10
   - entity: sensor
-    name: L2 Current
+    name: L2 current
     class: current
-    category: diagnostic
     dps:
       - id: 7  # phase_2
         type: base64
         name: sensor
         optional: true
         unit: A
+        class: measurement
         mask: "0000FFFFFF000000"
         mapping:
           - scale: 1000
   - entity: sensor
-    name: L2 Power
+    name: L2 power
     class: power
-    category: diagnostic
     dps:
       - id: 7  # phase_2
         type: base64
         name: sensor
         optional: true
+        class: measurement
         unit: kW
         mask: "0000000000FFFFFF"
         mapping:
           - scale: 1000
   - entity: sensor
-    name: L3 Voltage
+    name: L3 voltage
     class: voltage
-    category: diagnostic
     dps:
       - id: 8  # phase_3
         type: base64
         name: sensor
         optional: true
         unit: V
+        class: measurement
         mask: "FFFF000000000000"
         mapping:
           - scale: 10
   - entity: sensor
-    name: L3 Current
+    name: L3 current
     class: current
-    category: diagnostic
     dps:
       - id: 8  # phase_3
         type: base64
         name: sensor
         optional: true
         unit: A
+        class: measurement
         mask: "0000FFFFFF000000"
         mapping:
           - scale: 1000
   - entity: sensor
-    name: L3 Power
+    name: L3 power
     class: power
-    category: diagnostic
     dps:
       - id: 8  # phase_3
         type: base64
         name: sensor
         optional: true
+        class: measurement
         unit: kW
         mask: "0000000000FFFFFF"
         mapping:
@@ -201,13 +201,14 @@ entities:
     name: Connection
     icon: "mdi:ev-plug-type2"
     class: enum
+    translation_key: status
     dps:
       - id: 13  # connection_state
         type: string
         name: sensor
         mapping:
           - dps_val: controlpi_12v
-            value: Standby
+            value: standby
           - dps_val: controlpi_12v_pwm
             value: Communication initialising
           - dps_val: controlpi_9v
@@ -217,13 +218,12 @@ entities:
           - dps_val: controlpi_6v
             value: Ready to charge
           - dps_val: controlpi_6v_pwm
-            value: Charging
+            value: charging
           - dps_val: controlpi_error
-            value: Error
+            value: fault
   - entity: select
-    name: Mode
+    translation_key: charging_mode
     category: config
-    icon: "mdi:ev-station"
     dps:
       - id: 14  # work_mode
         type: string
@@ -231,15 +231,15 @@ entities:
         name: option
         mapping:
           - dps_val: charge_now
-            value: Immediate
+            value: immediate
           - dps_val: charge_energy
-            value: Fixed charge
+            value: fixed_charge
           - dps_val: charge_schedule
-            value: Scheduled charge
+            value: scheduled_charge
           - dps_val: charge_delay
-            value: Delayed charge
+            value: delayed_charge
           - dps_val: charge_pct
-            value: Percentage charge
+            value: charge_to_percent
   - entity: switch
     icon: "mdi:ev-station"
     dps:

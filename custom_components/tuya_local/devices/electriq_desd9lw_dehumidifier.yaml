@@ -1,4 +1,5 @@
-name: ElectriQ DESD9LW dehumidifier
+name: Dehumidifier
+# products: ElectriQ DESD9LW
 entities:
   - entity: climate
     dps:
@@ -74,7 +75,7 @@ entities:
         range:
           min: 16
           max: 30
-  - entity: light
+  - entity: switch
     translation_key: uv_sterilization
     dps:
       - id: 15

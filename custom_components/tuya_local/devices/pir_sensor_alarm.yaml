@@ -3,7 +3,6 @@ products:
   - id: y5tdmwmb2ieknmkb
 entities:
   - entity: binary_sensor
-    translation_key: motion
     class: motion
     dps:
       - id: 1
@@ -29,7 +28,6 @@ entities:
         name: sensor
   - entity: sensor
     class: battery
-    category: diagnostic
     dps:
       - id: 4
         type: integer

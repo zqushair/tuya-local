@@ -1,4 +1,8 @@
-name: Be Cool BC14KL2101F
+name: Air conditioner
+products:
+  - id: uguhaocoaqbi7c8s
+    manufacturer: Be Cool
+    model: BC14KL2404FW
 entities:
   - entity: climate
     dps:

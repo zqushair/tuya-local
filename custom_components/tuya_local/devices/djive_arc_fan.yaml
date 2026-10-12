@@ -1,8 +1,8 @@
 name: Humidifying fan
-products:
-  - id: bf5fd02f13d3f6d92exy2t
-    manufacturer: djive
-    model: Flowmate ARC
+# products:
+#   - id: UNKNOWN
+#     manufacturer: djive
+#     model: Flowmate ARC
 entities:
   - entity: fan
     dps:
@@ -73,8 +73,7 @@ entities:
         type: boolean
         name: switch
   - entity: switch
-    name: Sound
-    icon: "mdi:volume-high"
+    translation_key: sound
     dps:
       - id: 13
         type: boolean

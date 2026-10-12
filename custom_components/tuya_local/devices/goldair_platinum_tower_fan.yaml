@@ -14,13 +14,13 @@ entities:
         type: string
         name: preset_mode
         mapping:
-          - dps_val: 1
+          - dps_val: "1"
             value: normal
-          - dps_val: 2
+          - dps_val: "2"
             value: nature
-          - dps_val: 3
+          - dps_val: "3"
             value: sleep
-          - dps_val: 4
+          - dps_val: "4"
             value: baby
       - id: 3
         type: integer
@@ -36,9 +36,6 @@ entities:
             value: true
           - dps_val: "off"
             value: false
-      - id: 6
-        type: integer
-        name: timer
   - entity: number
     translation_key: timer
     class: duration

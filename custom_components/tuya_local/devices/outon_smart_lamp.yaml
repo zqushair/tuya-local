@@ -107,22 +107,17 @@ entities:
         name: dreamlight_music_data
         type: hex
         optional: true
-  - entity: number
+  - entity: time
     translation_key: timer
     category: config
     dps:
       - id: 26
-        name: value
         type: integer
         optional: true
+        name: second
         range:
           min: 0
-          max: 86400
-        unit: min
-        mapping:
-          - scale: 60
-            step: 60
-          - dps_val: null
+          max: 86399
   - entity: text
     translation_key: scene
     icon: "mdi:palette"

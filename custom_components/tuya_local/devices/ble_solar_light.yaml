@@ -81,23 +81,18 @@ entities:
         type: boolean
         hidden: true
         optional: true
-  - entity: number
+  - entity: time
     translation_key: timer
-    class: duration
     category: config
     dps:
       - id: 7
         type: integer
-        name: value
-        unit: min
+        name: second
         range:
           min: 0
           max: 86400
-        mapping:
-          - scale: 60
-            step: 60
   - entity: select
-    name: Device mode
+    translation_key: mode
     icon: "mdi:lightbulb-auto"
     category: config
     dps:
@@ -106,9 +101,9 @@ entities:
         name: option
         mapping:
           - dps_val: auto
-            value: Auto
+            value: auto
           - dps_val: manual
-            value: Manual
+            value: manual
   - entity: event
     class: motion
     category: diagnostic
@@ -174,8 +169,7 @@ entities:
           max: 3600
         unit: s
   - entity: switch
-    name: Motion detection
-    icon: "mdi:motion-sensor"
+    translation_key: motion_detection
     category: config
     dps:
       - id: 56
@@ -216,7 +210,6 @@ entities:
             value: false
   - entity: sensor
     class: battery
-    category: diagnostic
     dps:
       - id: 62
         type: string

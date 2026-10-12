@@ -57,21 +57,16 @@ entities:
         type: string
         optional: true
         name: paint_color_data
-  - entity: number
+  - entity: time
     translation_key: timer
     category: config
     dps:
       - id: 26
         type: integer
-        name: value
-        unit: min
+        name: second
         range:
           min: 0
-          max: 86400
-        mapping:
-          - scale: 60
-            step: 60
-        precision: 0
+          max: 86399
   - entity: select
     name: Video scene
     icon: "mdi:multimedia"

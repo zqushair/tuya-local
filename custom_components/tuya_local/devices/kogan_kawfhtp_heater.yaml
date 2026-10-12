@@ -4,6 +4,9 @@ products:
     manufacturer: Kogan / Goldair
     model_id: NPH-2000G-WIFI / GPCV340
     model: Glass panel heater
+  - id: n72zzd550zyw8qte
+    manufacturer: Cecotec
+    model: Ready Warm 6750 Crystal Connection
 entities:
   - entity: climate
     translation_only_key: heater
@@ -20,7 +23,7 @@ entities:
         type: integer
         range:
           min: 5
-          max: 40
+          max: 35
         name: temperature
         unit: C
       - id: 4
@@ -41,15 +44,13 @@ entities:
       - id: 2
         type: boolean
         name: lock
-  - entity: number
+  - entity: time
     translation_key: timer
-    class: duration
     category: config
     dps:
       - id: 5
         type: integer
-        name: value
-        unit: min
+        name: minute
         range:
           min: 0
           max: 1440

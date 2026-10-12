@@ -2,24 +2,27 @@ name: Valve controller
 products:
   - id: nguto5atyd2xxnap
     model: ARD-100+
+  - id: key5ckdnys3pqgec
+  - id: keyfxuj3d5wg53wx
+  - id: key7axydcvmea3x9
+    manufacturer: Nous
+    model: L3
 entities:
   - entity: valve
     dps:
       - id: 1
         type: boolean
         name: valve
-  - entity: number
+  - entity: time
     translation_key: timer
-    class: duration
     category: config
     dps:
       - id: 7
-        name: value
+        name: second
         type: integer
         range:
           min: 0
           max: 86400
-        unit: s
   - entity: select
     translation_key: initial_state
     category: config
@@ -27,6 +30,7 @@ entities:
       - id: 14
         type: string
         name: option
+        optional: true
         mapping:
           - dps_val: "off"
             value: "off"

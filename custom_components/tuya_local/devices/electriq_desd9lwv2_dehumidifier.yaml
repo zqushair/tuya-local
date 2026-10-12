@@ -70,7 +70,7 @@ entities:
         range:
           min: 16
           max: 30
-  - entity: light
+  - entity: switch
     translation_key: uv_sterilization
     dps:
       - id: 15

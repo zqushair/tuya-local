@@ -46,15 +46,13 @@ entities:
             range:
               min: 0
               max: 1000
-  - entity: number
+  - entity: time
     translation_key: timer
-    class: duration
     category: config
     dps:
       - id: 26
         type: integer
-        name: value
-        unit: s
+        name: second
         range:
           min: 0
           max: 86400
@@ -71,7 +69,7 @@ entities:
   - entity: text
     name: Dreamlight music
     category: config
-    icon: "mdi:"
+    icon: "mdi:music"
     hidden: true
     dps:
       - id: 52

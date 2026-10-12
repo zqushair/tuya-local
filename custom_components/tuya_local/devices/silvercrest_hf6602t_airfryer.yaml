@@ -33,7 +33,6 @@ entities:
         type: boolean
         name: button
   - entity: select
-    name: Mode
     translation_key: recipe
     dps:
       - id: 3
@@ -190,7 +189,7 @@ entities:
         type: boolean
         name: switch
   - entity: event
-    name: Reminder
+    translation_key: notification
     dps:
       - id: 101
         type: string

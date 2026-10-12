@@ -8,6 +8,8 @@ products:
   - id: z3jngbyubvwgfrcv
     manufacturer: Taxnele
     model: V3 2P 63A
+  - id: 3hkuggyv8839m9gw
+    manufacturer: Ketotek
 entities:
   - entity: sensor
     class: energy
@@ -46,7 +48,7 @@ entities:
         class: measurement
         mask: "0000FFFFFF000000"
         mapping:
-          - scale: 10
+          - scale: 1000
   - entity: sensor
     class: power
     category: diagnostic
@@ -58,8 +60,6 @@ entities:
         unit: W
         class: measurement
         mask: "0000000000FFFFFF"
-        mapping:
-          - scale: 10
       - id: 111
         type: integer
         optional: true
@@ -121,7 +121,7 @@ entities:
         mapping:
           - scale: 100
   - entity: sensor
-    name: Leakage current
+    translation_key: leakage_current
     class: current
     category: diagnostic
     dps:
@@ -205,29 +205,36 @@ entities:
         type: boolean
         optional: true
         name: switch
-  - entity: number
+  - entity: time
     translation_key: timer
     category: config
     dps:
       - id: 105
         type: integer
         optional: true
-        name: value
-        unit: min
+        name: second
         range:
           min: 0
-          max: 86400
-        mapping:
-          - scale: 60
-            step: 60
+          max: 86399
+  - entity: text
+    translation_key: schedule
+    category: config
+    hidden: true
+    dps:
       - id: 106
         type: string
         optional: true
-        name: cycle_time
+        name: value
+  - entity: text
+    name: Randomized schedule
+    icon: "mdi:island"
+    category: config
+    hidden: true
+    dps:
       - id: 108
         type: string
         optional: true
-        name: random_time
+        name: value
   - entity: number
     name: Leak delay
     category: config

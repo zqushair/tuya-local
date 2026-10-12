@@ -1,8 +1,15 @@
-name: Six button remote
+name: Multi button remote
 products:
   - id: iszegwpd
     manufacturer: LoraTap
     name: Six gang Zigbee remote
+  - id: famkxci2
+    model: QCSS600ZB 3 gang Zigbee remote
+  - id: bi6lpsew
+    model: QCSS600ZB 3 gang Zigbee remote
+  - id: axpdxqgu
+    manufacturer: Moes
+    model: Zigbee single scene switch
 entities:
   - entity: event
     name: Button 1
@@ -14,11 +21,19 @@ entities:
         optional: true
         mapping:
           - dps_val: single_click
-            value: single_click
+            value: press_end
           - dps_val: long_press
-            value: long_press
+            value: long_press_end
           - dps_val: double_click
-            value: double_click
+            value: multi_press_end
+      - id: 1
+        type: string
+        name: multi_press_count
+        optional: true
+        mapping:
+          - dps_val: double_click
+            value: 2
+          - value: null
   - entity: event
     name: Button 2
     class: button
@@ -29,11 +44,19 @@ entities:
         optional: true
         mapping:
           - dps_val: single_click
-            value: single_click
+            value: press_end
           - dps_val: long_press
-            value: long_press
+            value: long_press_end
           - dps_val: double_click
-            value: double_click
+            value: multi_press_end
+      - id: 2
+        type: string
+        name: multi_press_count
+        optional: true
+        mapping:
+          - dps_val: double_click
+            value: 2
+          - value: null
   - entity: event
     name: Button 3
     class: button
@@ -44,11 +67,19 @@ entities:
         optional: true
         mapping:
           - dps_val: single_click
-            value: single_click
+            value: press_end
           - dps_val: long_press
-            value: long_press
+            value: long_press_end
           - dps_val: double_click
-            value: double_click
+            value: multi_press_end
+      - id: 3
+        type: string
+        name: multi_press_count
+        optional: true
+        mapping:
+          - dps_val: double_click
+            value: 2
+          - value: null
   - entity: event
     name: Button 4
     class: button
@@ -59,11 +90,19 @@ entities:
         optional: true
         mapping:
           - dps_val: single_click
-            value: single_click
+            value: press_end
           - dps_val: long_press
-            value: long_press
+            value: long_press_end
           - dps_val: double_click
-            value: double_click
+            value: multi_press_end
+      - id: 4
+        type: string
+        name: multi_press_count
+        optional: true
+        mapping:
+          - dps_val: double_click
+            value: 2
+          - value: null
   - entity: event
     name: Button 5
     class: button
@@ -74,11 +113,19 @@ entities:
         optional: true
         mapping:
           - dps_val: single_click
-            value: single_click
+            value: press_end
           - dps_val: long_press
-            value: long_press
+            value: long_press_end
           - dps_val: double_click
-            value: double_click
+            value: multi_press_end
+      - id: 5
+        type: string
+        name: multi_press_count
+        optional: true
+        mapping:
+          - dps_val: double_click
+            value: 2
+          - value: null
   - entity: event
     name: Button 6
     class: button
@@ -89,14 +136,21 @@ entities:
         optional: true
         mapping:
           - dps_val: single_click
-            value: single_click
+            value: press_end
           - dps_val: long_press
-            value: long_press
+            value: long_press_end
           - dps_val: double_click
-            value: double_click
+            value: multi_press_end
+      - id: 6
+        type: string
+        name: multi_press_count
+        optional: true
+        mapping:
+          - dps_val: double_click
+            value: 2
+          - value: null
   - entity: sensor
     class: battery
-    category: diagnostic
     dps:
       - id: 10
         type: integer

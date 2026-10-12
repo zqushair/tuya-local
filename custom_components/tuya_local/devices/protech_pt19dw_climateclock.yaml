@@ -54,7 +54,7 @@ entities:
           - dps_val: f
             value: fahrenheit
   - entity: select
-    name: Time format
+    translation_key: time_format
     icon: "mdi:clock"
     category: config
     dps:
@@ -63,9 +63,9 @@ entities:
         name: option
         mapping:
           - dps_val: "0"
-            value: "12h"
+            value: 12_hour
           - dps_val: "1"
-            value: "24h"
+            value: 24_hour
       - id: 107
         type: string
         optional: true
@@ -115,10 +115,9 @@ entities:
         optional: true
         name: alarm
   - entity: number
-    name: Maximum temperature
+    translation_key: maximum_temperature
     category: config
     class: temperature
-    icon: "mdi:thermometer-chevron-up"
     dps:
       - id: 108
         type: integer
@@ -137,10 +136,9 @@ entities:
           - dps_val: f
             value: F
   - entity: number
-    name: Minimum temperature
+    translation_key: minimum_temperature
     class: temperature
     category: config
-    icon: "mdi:thermometer-chevron-down"
     dps:
       - id: 109
         type: integer

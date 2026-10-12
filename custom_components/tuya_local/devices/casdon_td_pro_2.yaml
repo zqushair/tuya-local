@@ -100,33 +100,26 @@ entities:
       - id: 2
         name: switch
         type: boolean
-  - entity: number
+  - entity: time
     name: Start time
     translation_key: timer
-    class: duration
     dps:
       - id: 9
-        name: value
+        name: minute
         type: integer
         optional: true
         range:
           min: 1
           max: 1440
-        unit: min
-        class: measurement
-  - entity: number
-    icon: "mdi:timer-edit"
-    class: duration
-    name: Cooking time
+  - entity: time
+    translation_key: cooking_time
     dps:
       - id: 10
-        name: value
+        name: minute
         type: integer
         range:
           min: 1
           max: 1440
-        unit: min
-        class: measurement
   - entity: sensor
     translation_key: time_remaining
     class: duration
@@ -142,7 +135,7 @@ entities:
   - entity: binary_sensor
     category: diagnostic
     class: problem
-    translation_key: casdon_oven_fault
+    translation_key: problem
     dps:
       - id: 13
         type: bitfield
@@ -160,23 +153,23 @@ entities:
         mapping:
           - value: unknown
           - dps_val: 0
-            value: OK
+            value: ok
           - dps_val: 1
-            value: e1
+            value: chamber_overheat
           - dps_val: 2
-            value: e2
+            value: evaporation_tray_overheat
           - dps_val: 4
-            value: e3
+            value: chamber_low_temperature
           - dps_val: 8
-            value: e4
+            value: evaporation_tray_low_temperature
           - dps_val: 16
-            value: e5
+            value: sensor_open_circuit
           - dps_val: 32
-            value: e6
+            value: sensor_short_circuit
           - dps_val: 64
-            value: e7
+            value: communication_error
           - dps_val: 128
-            value: e8
+            value: water_removed_or_empty
 
   - entity: sensor
     class: enum

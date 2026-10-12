@@ -195,8 +195,7 @@ entities:
         name: fault_code
         optional: true
   - entity: switch
-    name: Night mode
-    icon: "mdi:weather-night"
+    translation_key: night_mode
     category: config
     dps:
       - id: 103
@@ -218,9 +217,8 @@ entities:
         type: boolean
         name: sensor
   - entity: number
-    name: Temperature calibration
+    translation_key: temperature_calibration
     category: config
-    icon: "mdi:thermometer-check"
     dps:
       - id: 106
         type: integer

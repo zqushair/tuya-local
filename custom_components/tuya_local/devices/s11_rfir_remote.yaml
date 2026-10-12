@@ -8,6 +8,8 @@ products:
     name: RF/IR remote
   - id: 0gawnyfgyneswent
     model: IR Controller Pro
+  - id: keym4vvjhx4sd9kk
+    model: S11+ (IR+RF Pro)
 entities:
   - entity: remote
     dps:
@@ -36,3 +38,9 @@ entities:
         type: string
         optional: true
         name: scene_4
+  - entity: infrared
+    dps:
+      - id: 201
+        name: send
+        type: string
+        optional: true

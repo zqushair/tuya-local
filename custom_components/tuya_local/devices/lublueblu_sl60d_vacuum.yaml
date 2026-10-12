@@ -10,32 +10,6 @@ entities:
         type: boolean
         name: activate
         optional: true
-        mapping:
-          - dps_val: false
-            constraint: pause
-            conditions:
-              - dps_val: true
-                value: false
-              - dps_val: false
-                value: false
-                hidden: true
-              - dps_val: null
-                value: false
-                hidden: true
-          - dps_val: true
-            constraint: pause
-            conditions:
-              - dps_val: false
-                value: true
-              - dps_val: true
-                value: true
-                hidden: true
-              - dps_val: null
-                value: true
-                hidden: true
-          - dps_val: null
-            value: false
-            hidden: true
       - id: 2
         type: boolean
         optional: true
@@ -123,10 +97,6 @@ entities:
         type: string
         optional: true
         name: path_data
-      - id: 15
-        type: string
-        optional: true
-        name: command_trans
       - id: 28
         type: bitfield
         name: error
@@ -227,7 +197,7 @@ entities:
         name: sensor
         unit: h
   - entity: sensor
-    name: Filter lifetime
+    translation_key: filter_life
     category: diagnostic
     class: duration
     dps:
@@ -246,9 +216,8 @@ entities:
         unit: min
         optional: true
   - entity: number
-    name: Volume
+    translation_key: volume
     category: config
-    icon: "mdi:volume-high"
     dps:
       - id: 26
         type: integer
@@ -322,8 +291,7 @@ entities:
         name: button
         optional: true
   - entity: switch
-    name: Do not disturb
-    icon: "mdi:minus-circle"
+    translation_key: do_not_disturb
     category: config
     dps:
       - id: 25
@@ -421,8 +389,7 @@ entities:
             value: true
           - value: false
   - entity: select
-    name: Operation mode
-    icon: "mdi:robot-vacuum"
+    translation_key: cleaning_mode
     category: config
     dps:
       - id: 41
@@ -431,11 +398,11 @@ entities:
         name: option
         mapping:
           - dps_val: only_sweep
-            value: Sweep
+            value: sweep
           - dps_val: only_mop
-            value: Mop
+            value: mop
           - dps_val: both_work
-            value: Both
+            value: sweep_and_mop
   - entity: select
     name: Carpet mode
     icon: "mdi:rug"
@@ -473,3 +440,13 @@ entities:
       - id: 28
         type: bitfield
         name: fault_code
+  - entity: text
+    name: Command
+    category: config
+    icon: "mdi:console-line"
+    hidden: true
+    dps:
+      - id: 15
+        type: base64
+        name: value
+        optional: true
